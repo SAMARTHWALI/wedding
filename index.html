@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jagadeesh & Pooja | Rakesh & Bharati - Wali Family Wedding Invitation</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            DEFAULT: '#D4AF37',
+                            light: '#F9E79F',
+                            dark: '#C5A028',
+                        },
+                        maroon: {
+                            DEFAULT: '#800000',
+                            dark: '#5C0000',
+                        },
+                        ivory: '#FFFFF0',
+                        deepRed: '#B22222',
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        script: ['"Great Vibes"', 'cursive'],
+                        sans: ['Montserrat', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <!-- GSAP & Plugins -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body class="bg-ivory text-maroon-dark overflow-x-hidden">
+
+    <!-- Loading Screen -->
+    <div id="loader" class="fixed inset-0 z-[100] bg-maroon-dark flex flex-col items-center justify-center text-gold">
+        <div class="loader-content text-center">
+            <h2 class="font-script text-5xl mb-4">Wali Family</h2>
+            <div class="w-48 h-1 bg-gold/30 rounded-full overflow-hidden relative">
+                <div id="loader-progress" class="absolute inset-0 bg-gold w-0"></div>
+            </div>
+            <p class="mt-4 font-sans tracking-[0.2em] text-sm opacity-80 uppercase">Loading Experience</p>
+        </div>
+    </div>
+
+    <!-- Background Music -->
+    <audio id="bg-music" loop>
+        <source src="assets/audio/background-music.mp3" type="audio/mpeg">
+    </audio>
+    <button id="music-toggle"
+        class="fixed bottom-6 right-6 z-50 p-3 bg-gold/20 backdrop-blur-md border border-gold/50 rounded-full text-gold hover:bg-gold hover:text-maroon transition-all duration-300">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
+        </svg>
+    </button>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-40 px-6 py-4 transition-all duration-500">
+        <div class="max-w-7xl mx-auto flex justify-between items-center whitespace-nowrap">
+            <a href="#" class="font-script text-2xl md:text-3xl text-gold">Wali Family</a>
+            <div class="hidden md:flex space-x-8 font-sans text-xs uppercase tracking-widest text-gold/80">
+                <a href="#welcome" class="hover:text-gold transition-colors">Welcome</a>
+                <a href="#couples" class="hover:text-gold transition-colors">Couples</a>
+                <a href="#events" class="hover:text-gold transition-colors">Events</a>
+                <a href="#gallery" class="hover:text-gold transition-colors">Gallery</a>
+                <a href="#rsvp" class="hover:text-gold transition-colors">RSVP</a>
+            </div>
+            <!-- Mobile Menu Toggle -->
+            <button class="md:hidden text-gold">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero"
+            class="relative min-h-screen py-10 flex flex-col items-center justify-center overflow-hidden bg-ivory">
+            <div class="absolute inset-0 z-0" id="hero-bg">
+                <img src="assets/images/floral_bg.png" alt="Royal Background"
+                    class="w-full h-full object-cover opacity-40">
+                <div class="absolute inset-0 bg-gradient-to-b from-ivory via-transparent to-ivory opacity-80"></div>
+            </div>
+
+            <div class="relative z-10 text-center px-4 max-w-7xl" id="hero-content">
+                <div class="ganesha-container mb-4">
+                    <p
+                        class="font-serif italic text-maroon-dark text-[10px] md:text-xs tracking-[0.4em] mb-4 font-bold uppercase">
+                        Sri Veerabhadreshwara Prasanna</p>
+                    <div class="ganesha-premium-container mx-auto" style="width: 140px; background: transparent;">
+                        <img src="assets/images/ganesha_new.png" alt="Lord Ganesha" class="mx-auto block w-full"
+                            style="mix-blend-mode: multiply; filter: contrast(1.1) brightness(1.02); background: transparent;">
+                    </div>
+                </div>
+
+                <p
+                    class="font-sans text-maroon/80 text-[10px] md:text-xs tracking-[0.6em] uppercase font-bold mb-10 italic">
+                    Monday, 20th April 2026</p>
+
+                <div class="hero-couples-grid">
+                    <!-- Couple 1 -->
+                    <div class="couple-unit">
+                        <div class="mb-2">
+                            <span
+                                class="text-[10px] md:text-[12px] uppercase tracking-[0.4em] text-maroon/50 font-bold italic">Chi.</span>
+                            <h1 class="font-serif text-maroon-dark italic font-bold leading-tight">Jagadeesh <span
+                                    class="text-[10px] md:text-xs font-sans normal-case text-maroon/40 align-middle">B.Sc.,</span>
+                            </h1>
+                        </div>
+                        <span class="font-script weds text-maroon/40 block leading-none">weds</span>
+                        <div class="mt-2">
+                            <span
+                                class="text-[10px] md:text-[12px] uppercase tracking-[0.4em] text-maroon/50 font-bold italic">Chi.
+                                Sou.</span>
+                            <h1 class="font-serif text-maroon-dark italic font-bold leading-tight">Pooja <span
+                                    class="text-[10px] md:text-xs font-sans normal-case text-maroon/40 align-middle">B.A.,</span>
+                            </h1>
+                        </div>
+                    </div>
+
+                    <div class="hero-divider-vertical hidden lg:block mx-12"></div>
+                    <div class="hero-ornament lg:hidden my-5"></div>
+
+                    <!-- Couple 2 -->
+                    <div class="couple-unit">
+                        <div class="mb-2">
+                            <span
+                                class="text-[10px] md:text-[12px] uppercase tracking-[0.4em] text-maroon/50 font-bold italic">Chi.</span>
+                            <h1 class="font-serif text-maroon-dark italic font-bold leading-tight">Rakesh <span
+                                    class="text-[10px] md:text-xs font-sans normal-case text-maroon/40 align-middle">CESCOM</span>
+                            </h1>
+                        </div>
+                        <span class="font-script weds text-maroon/40 block leading-none">weds</span>
+                        <div class="mt-2">
+                            <span
+                                class="text-[10px] md:text-[12px] uppercase tracking-[0.4em] text-maroon/50 font-bold italic">Chi.
+                                Sou.</span>
+                            <h1 class="font-serif text-maroon-dark italic font-bold leading-tight">Bharati <span
+                                    class="text-[10px] md:text-xs font-sans normal-case text-maroon/40 align-middle">B.C.A.</span>
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8">
+                    <p class="font-serif italic text-maroon/70 text-sm md:text-base max-w-sm mx-auto leading-relaxed">
+                        Together with their families,<br>invite you to celebrate their weddings
+                    </p>
+                    <div class="mt-6">
+                        <span class="block text-[8px] uppercase tracking-[0.4em] text-gold mb-1">From :</span>
+                        <p class="font-serif text-maroon-dark font-bold text-base md:text-xl">Smt. Shivaleela Chidanand
+                            V. Wali</p>
+                        <p class="text-[9px] md:text-xs tracking-widest text-maroon/60 uppercase mt-1">Munyal, Tq.
+                            Mudalagi, Dist. Belagavi</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Floating Petals Container -->
+            <div id="petals-container" class="absolute inset-0 pointer-events-none z-[5]"></div>
+        </section>
+
+        <!-- Welcome Section -->
+        <section id="welcome" class="py-32 px-6 bg-ivory text-center relative">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="font-script text-6xl text-maroon mb-12">Invitation</h2>
+                <div class="w-20 h-[1px] bg-gold/50 mx-auto mb-12"></div>
+                <p class="font-serif text-2xl md:text-3xl leading-relaxed text-maroon/90 italic mb-12">
+                    "We request your gracious presence with your family on the auspicious occasion of our son's
+                    wedding."
+                </p>
+                <div class="font-serif text-xl md:text-2xl text-maroon mb-4 uppercase tracking-widest">Awaiting Your
+                    Presence</div>
+                <div class="font-serif text-2xl md:text-4xl text-maroon-dark font-bold mb-2">Sri Chidanand V. Wali</div>
+                <div class="font-serif text-2xl md:text-4xl text-maroon-dark font-bold mb-6">& Smt. Shivaleela Chidanand
+                    V. Wali</div>
+                <p class="font-sans text-sm tracking-widest text-maroon/60 uppercase">Munyal, Tq. Mudalagi, Dist.
+                    Belagavi</p>
+            </div>
+        </section>
+
+        <!-- Couples Section -->
+        <section id="couples" class="py-24 px-6 bg-maroon-dark relative overflow-hidden">
+            <!-- Background Decoration -->
+            <div class="absolute top-0 right-0 w-64 h-64 opacity-10 rotate-12 -mr-32 -mt-32">
+                <img src="assets/images/pattern.png" alt="Decoration">
+            </div>
+            <div class="absolute bottom-0 left-0 w-64 h-64 opacity-10 -rotate-12 -ml-32 -mb-32">
+                <img src="assets/images/pattern.png" alt="Decoration">
+            </div>
+
+            <div class="max-w-7xl mx-auto relative z-10">
+                <h2 class="text-center font-script text-6xl text-gold mb-20">The Couples</h2>
+
+                <div class="grid md:grid-cols-2 gap-12 lg:gap-24">
+                    <!-- Couple 1 Card -->
+                    <div class="couple-card group">
+                        <div class="relative overflow-hidden rounded-2xl aspect-[4/5] border border-gold/30">
+                            <img src="assets/images/couple1.png" alt="Jagadeesh & Pooja"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div
+                                class="absolute bottom-0 h-1/3 w-full bg-gradient-to-t from-maroon-dark/95 to-transparent">
+                            </div>
+                            <div class="absolute bottom-10 left-0 w-full text-center px-6">
+                                <h3 class="font-script text-5xl text-gold mb-2">Jagadeesh & Pooja</h3>
+                                <div class="w-12 h-1 bg-gold mx-auto group-hover:w-24 transition-all duration-500">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Couple 2 Card -->
+                    <div class="couple-card group" style="transition-delay: 200ms;">
+                        <div class="relative overflow-hidden rounded-2xl aspect-[4/5] border border-gold/30">
+                            <img src="assets/images/couple2.png" alt="Rakesh & Bharati"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div
+                                class="absolute bottom-0 h-1/3 w-full bg-gradient-to-t from-maroon-dark/95 to-transparent">
+                            </div>
+                            <div class="absolute bottom-10 left-0 w-full text-center px-6">
+                                <h3 class="font-script text-5xl text-gold mb-2">Rakesh & Bharati</h3>
+                                <div class="w-12 h-1 bg-gold mx-auto group-hover:w-24 transition-all duration-500">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Event Details Section -->
+        <section id="events" class="py-32 px-6 bg-ivory relative overflow-hidden">
+            <!-- Subtle Gold Texture Overlay -->
+            <div class="absolute inset-0 opacity-[0.03] pointer-events-none">
+                <img src="assets/images/pattern.png" alt="" class="w-full h-full object-cover">
+            </div>
+
+            <div class="max-w-7xl mx-auto relative z-10">
+                <div class="text-center mb-20">
+                    <p class="font-sans text-xs uppercase tracking-[0.5em] text-maroon/60 mb-4 font-bold">The Celebration</p>
+                    <h2 class="font-script text-7xl md:text-8xl text-maroon mb-6">Wedding Details</h2>
+                    <div class="w-24 h-[1px] bg-gold/50 mx-auto"></div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                    <!-- Muhurtham Details -->
+                    <div class="event-card-premium group relative p-1 bg-gradient-to-br from-gold/40 via-gold/5 to-transparent rounded-[2.5rem] shadow-xl transition-transform duration-500 hover:scale-[1.02]">
+                        <div class="h-full bg-maroon-dark/95 backdrop-blur-xl rounded-[2.3rem] p-6 md:p-10 text-center border border-gold/20 overflow-hidden relative">
+                            <!-- Floating Ornament Blur -->
+                            <div class="absolute -top-10 -right-10 w-40 h-40 bg-gold/10 rounded-full blur-3xl group-hover:bg-gold/20 transition-all duration-700"></div>
+                            
+                            <div class="text-gold mb-6 md:mb-8 text-center flex justify-center">
+                                <i class="fa-solid fa-clock-rotate-left text-5xl md:text-6xl opacity-90 group-hover:scale-110 transition-transform duration-500"></i>
+                            </div>
+                            
+                            <h3 class="font-serif text-2xl md:text-4xl text-gold mb-6 md:mb-8 uppercase tracking-[0.3em] font-bold text-center">Muhurtham</h3>
+                            
+                            <div class="space-y-4 md:space-y-6 text-ivory/90 font-serif">
+                                <div class="flex items-center justify-center gap-4 border-b border-gold/10 pb-4 md:pb-6">
+                                    <i class="fa-solid fa-calendar-check text-gold/60 text-lg md:text-xl"></i>
+                                    <div>
+                                        <p class="text-xl md:text-2xl font-bold tracking-tight">20th April 2026</p>
+                                        <p class="text-gold/80 text-[10px] md:text-sm uppercase tracking-widest mt-1">Monday</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center justify-center gap-4 pb-4 md:pb-6">
+                                    <i class="fa-solid fa-bolt-lightning text-gold/60 text-lg md:text-xl"></i>
+                                    <div>
+                                        <p class="text-lg md:text-xl font-bold tracking-wider">12:29 PM Onwards</p>
+                                        <p class="text-gold/60 text-[10px] md:text-xs italic tracking-widest mt-2 leading-relaxed">"Followed by Sumptuous Lunch"</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Bottom Corner Ornament -->
+                            <div class="absolute -bottom-4 -left-4 w-12 h-12 border-l-2 border-b-2 border-gold/30 rounded-bl-xl"></div>
+                        </div>
+                    </div>
+
+                    <!-- Venue Details -->
+                    <div class="event-card-premium group relative p-1 bg-gradient-to-br from-gold/40 via-gold/5 to-transparent rounded-[2.5rem] shadow-xl transition-transform duration-500 hover:scale-[1.02]">
+                        <div class="h-full bg-maroon-dark/95 backdrop-blur-xl rounded-[2.3rem] p-6 md:p-10 text-center border border-gold/20 overflow-hidden relative">
+                            <!-- Floating Ornament Blur -->
+                            <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-gold/10 rounded-full blur-3xl group-hover:bg-gold/20 transition-all duration-700"></div>
+                            
+                            <div class="text-gold mb-6 md:mb-8 text-center flex justify-center">
+                                <i class="fa-solid fa-map-location-dot text-5xl md:text-6xl opacity-90 group-hover:scale-110 transition-transform duration-500"></i>
+                            </div>
+                            
+                            <h3 class="font-serif text-2xl md:text-4xl text-gold mb-6 md:mb-8 uppercase tracking-[0.3em] font-bold text-center">Venue</h3>
+                            
+                            <div class="space-y-4 md:space-y-6 text-ivory/90 font-serif">
+                                <div class="space-y-2">
+                                    <p class="text-lg md:text-2xl font-bold leading-tight px-2">Sri Tonapeenath Samudaya Bhavan</p>
+                                    <p class="text-xs md:text-base tracking-widest opacity-80">Mahalingapur - 587312</p>
+                                    <p class="text-[10px] md:text-sm tracking-widest opacity-60 italic">Tq. Mudhol, Dist. Bagalkot</p>
+                                </div>
+                                
+                                <div class="pt-6 md:pt-8 text-center flex justify-center">
+                                    <a href="https://www.google.com/maps/search/Sri+Tonapeenath+Samudaya+Bhavan+Mahalingapur" target="_blank" 
+                                       class="inline-flex items-center gap-3 px-6 md:px-8 py-2 md:py-3 bg-gold/10 border border-gold text-gold text-[10px] md:text-xs uppercase tracking-[0.3em] font-bold hover:bg-gold hover:text-maroon-dark transition-all duration-500 rounded-full transform group-hover:-translate-y-1">
+                                        <i class="fa-solid fa-diamond-turn-right"></i> Navigate
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <!-- Top Corner Ornament -->
+                            <div class="absolute -top-4 -right-4 w-12 h-12 border-r-2 border-t-2 border-gold/30 rounded-tr-xl"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Countdown Timer Section -->
+        <section class="py-20 bg-maroon text-gold text-center relative overflow-hidden">
+            <div class="absolute inset-0 opacity-10">
+                <img src="assets/images/pattern.png" alt="Pattern" class="w-full h-full object-cover">
+            </div>
+            <div class="max-w-4xl mx-auto relative z-10 px-6">
+                <h3 class="font-sans text-xs uppercase tracking-[0.4em] mb-8 font-bold">Counting Down to the Big Day
+                </h3>
+                <div id="countdown" class="flex justify-center gap-4 md:gap-12">
+                    <div class="countdown-item">
+                        <span id="days" class="block text-5xl md:text-7xl font-serif">00</span>
+                        <span class="text-[10px] md:text-sm uppercase tracking-widest opacity-60">Days</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="hours" class="block text-5xl md:text-7xl font-serif">00</span>
+                        <span class="text-[10px] md:text-sm uppercase tracking-widest opacity-60">Hours</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="minutes" class="block text-5xl md:text-7xl font-serif">00</span>
+                        <span class="text-[10px] md:text-sm uppercase tracking-widest opacity-60">Mins</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="seconds" class="block text-5xl md:text-7xl font-serif">00</span>
+                        <span class="text-[10px] md:text-sm uppercase tracking-widest opacity-60">Secs</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="py-24 px-6 bg-ivory">
+            <div class="max-w-7xl mx-auto">
+                <h2 class="text-center font-script text-6xl text-maroon mb-16">Pre-Wedding Gallery</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="gallery-grid">
+                    <div class="gallery-item overflow-hidden rounded-2xl aspect-square cursor-pointer group">
+                        <img src="assets/images/gallery1.png" alt="Gallery 1"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="gallery-item overflow-hidden rounded-2xl aspect-square cursor-pointer group"
+                        style="transition-delay: 100ms;">
+                        <img src="assets/images/gallery2.png" alt="Gallery 2"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="gallery-item overflow-hidden rounded-2xl aspect-square cursor-pointer group"
+                        style="transition-delay: 200ms;">
+                        <img src="assets/images/gallery3.png" alt="Gallery 3"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Location Section -->
+        <section id="location" class="py-24 px-6 bg-maroon-dark relative">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="font-script text-6xl text-gold mb-8">Venue & Location</h2>
+                        <div class="space-y-6 text-ivory/90">
+                            <div>
+                                <h4 class="font-serif text-xl text-gold mb-2 uppercase tracking-widest">Sri Tonapeenath
+                                    Samudaya Bhavan
+                                </h4>
+                                <p class="font-sans">Mahalingapur-587312,<br>Tq. Mudhol, Dist. Bagalkot</p>
+                            </div>
+                            <div class="pt-6 border-t border-gold/20">
+                                <p class="font-serif italic text-gold text-lg mb-4">"We request the pleasure of your
+                                    company to share in our joy."
+                                </p>
+                                <a href="https://www.google.com/maps/search/Sri+Tonapeenath+Samudaya+Bhavan+Mahalingapur"
+                                    target="_blank"
+                                    class="inline-block px-8 py-3 bg-gold text-maroon-dark font-sans font-bold uppercase tracking-widest rounded-full hover:bg-ivory transition-colors duration-300">Get
+                                    Directions</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="h-[400px] rounded-3xl overflow-hidden border border-gold/30">
+                        <div class="w-full h-full bg-gold/5 flex items-center justify-center text-gold/40 flex-col">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mb-4" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                            <span class="font-sans uppercase tracking-[0.2em] text-xs">Venue Location</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-20 bg-maroon text-center relative border-t border-gold/20 overflow-hidden">
+        <div class="absolute inset-0 opacity-5">
+            <img src="assets/images/pattern.png" alt="Pattern" class="w-full h-full object-cover">
+        </div>
+        <div class="max-w-4xl mx-auto px-6 relative z-10">
+            <h3 class="font-script text-5xl text-gold mb-8">Wali Family</h3>
+            <p class="font-serif italic text-gold/80 text-xl mb-12">"With best compliments from: Relatives & Friends"
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-16 text-gold/80 font-serif">
+                <div class="space-y-4">
+                    <p class="uppercase tracking-widest text-xs font-sans font-bold">Call Us</p>
+                    <p class="text-2xl">9972340381</p>
+                    <p class="text-2xl">8147876734</p>
+                </div>
+                <div class="space-y-4">
+                    <p class="uppercase tracking-widest text-xs font-sans font-bold">Visit Venue</p>
+                    <p class="text-xl">Sri Tonapeenath Samudaya Bhavan</p>
+                    <p class="text-sm opacity-60 italic">Scan for Location in RSVP Section</p>
+                </div>
+            </div>
+
+            <p class="font-sans text-[10px] uppercase tracking-[0.5em] text-gold/40">Made with ❤️ for the Wali Family
+            </p>
+        </div>
+    </footer>
+
+    <!-- JS Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/countdown.js"></script>
+</body>
+
+</html>

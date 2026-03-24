@@ -1,0 +1,197 @@
+/* Custom Styles for Wedding Invitation */
+
+:root {
+    --gold: #D4AF37;
+    --gold-light: #F9E79F;
+    --gold-dark: #C5A028;
+    --maroon: #800000;
+    --maroon-dark: #5C0000;
+    --ivory: #FFFFF0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--ivory);
+    color: var(--maroon-dark);
+}
+
+/* Glassmorphism Classes */
+.glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.glass-maroon {
+    background: rgba(80, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+/* Premium Ganesha Container */
+.ganesha-premium-container {
+    display: inline-block;
+    width: 100px;
+    margin-bottom: 0.5rem;
+    position: relative;
+    z-index: 10;
+    mix-blend-mode: multiply; /* Ensuring it works with pure ivory background */
+}
+
+.ganesha-premium-container img {
+    width: 100%;
+}
+
+.hero-couples-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Drastically reduced from 6rem */
+    align-items: center;
+    width: 100%;
+}
+
+@media (min-width: 1024px) {
+    .hero-couples-grid {
+        flex-direction: row;
+        justify-content: center;
+        gap: 2rem; /* Reduced from 4rem */
+    }
+    .hero-divider-vertical {
+        width: 1px;
+        height: 150px;
+        background: linear-gradient(to bottom, transparent, rgba(212, 175, 55, 0.5), transparent);
+    }
+}
+
+.couple-unit h1 {
+    font-size: clamp(2.5rem, 6vw, 5rem); /* Increased size */
+    font-weight: 700;
+}
+.couple-unit .weds {
+    font-size: clamp(2rem, 5vw, 4rem);
+    margin: -0.5rem 0;
+}
+
+/* Elegant CSS Border Ornament */
+.hero-ornament {
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(212, 175, 55, 0.8), transparent);
+    margin: 0.5rem auto; /* Minimizing gap */
+}
+
+
+
+/* Gold Shine Effect */
+@keyframes shine {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+}
+.text-gold-gradient {
+    background: linear-gradient(to right, #F9E79F 0%, #D4AF37 30%, #F9E79F 50%, #D4AF37 70%, #C5A028 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 10s linear infinite;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+/* Animations Support */
+.reveal {
+    opacity: 1; /* Changed from 0 to ensure visibility */
+    transform: none; /* Changed from translateY(30px) */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Premium Event Cards */
+.event-card-premium {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.event-card-premium:hover {
+    box-shadow: 0 25px 50px -12px rgba(212, 175, 55, 0.25);
+}
+
+.event-card-premium i {
+    filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.3));
+}
+
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Floating Petals Styles */
+.petal {
+    position: absolute;
+    background-color: #ffb7c5; /* Soft pink or deep red */
+    border-radius: 150% 0 150% 0;
+    animation: drift linear infinite;
+    z-index: 5;
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+@keyframes drift {
+    0% {
+        transform: translateY(-10vh) translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.7;
+    }
+    90% {
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(110vh) translateX(100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Navbar Scroll Effect */
+nav.scrolled {
+    background: rgba(92, 0, 0, 0.9);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+/* Ganesha Animation Glow */
+.ganesha-container img {
+    animation: pulse-glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes pulse-glow {
+    from {
+        filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.3));
+    }
+    to {
+        filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.6));
+    }
+}
+
+/* Loader Styles */
+#loader-progress {
+    transition: width 0.3s ease;
+}
+
+/* Scroll Snap (Optional but nice for premium feel) */
+/* .scroll-container {
+    scroll-snap-type: y mandatory;
+    height: 100vh;
+    overflow-y: scroll;
+}
+.scroll-section {
+    scroll-snap-align: start;
+    height: 100vh;
+} */

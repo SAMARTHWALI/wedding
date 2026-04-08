@@ -7,45 +7,54 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 1. Loader Logic ---
     const loader = document.getElementById('loader');
     const progress = document.getElementById('loader-progress');
+    const loaderBar = document.getElementById('loader-bar');
+    const loaderStatus = document.getElementById('loader-status');
+    const enterBtn = document.getElementById('enter-btn');
     let width = 0;
 
     const interval = setInterval(() => {
         if (width >= 100) {
             clearInterval(interval);
+            
+            // Transition from progress bar to Enter button
             setTimeout(() => {
-                loader.classList.add('opacity-0');
+                loaderBar.classList.add('opacity-0');
+                loaderStatus.classList.add('opacity-0');
+                
                 setTimeout(() => {
-                    loader.style.display = 'none';
-                    startHeroAnimation();
-                }, 800);
+                    loaderBar.style.display = 'none';
+                    loaderStatus.style.display = 'none';
+                    
+                    enterBtn.classList.remove('hidden');
+                    // Force reflow for transition
+                    enterBtn.offsetHeight; 
+                    enterBtn.classList.add('show');
+                }, 500);
             }, 500);
         } else {
-            width += Math.random() * 15;
+            width += Math.random() * 20;
             if (width > 100) width = 100;
             progress.style.width = width + '%';
         }
     }, 150);
 
-    // --- 2. Background Music ---
-    const music = document.getElementById('bg-music');
-    const musicBtn = document.getElementById('music-toggle');
-    let isPlaying = false;
+    // --- 2. Enter Button Click ---
+    enterBtn.addEventListener('click', () => {
+        // Start Music (via i18n handler which knows the track)
+        if (window.initMusic) window.initMusic();
 
+        // Reveal Site
+        loader.classList.add('opacity-0');
+        setTimeout(() => {
+            loader.style.display = 'none';
+            startHeroAnimation();
+        }, 800);
+    });
+
+    // --- 2. Manual Music Toggle (Consolidated) ---
+    const musicBtn = document.getElementById('music-toggle');
     musicBtn.addEventListener('click', () => {
-        if (isPlaying) {
-            music.pause();
-            musicBtn.innerHTML = `
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
-                </svg>`;
-        } else {
-            music.play().catch(err => console.log("Audio play blocked by browser."));
-            musicBtn.innerHTML = `
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
-                </svg>`;
-        }
-        isPlaying = !isPlaying;
+        if (window.toggleMusic) window.toggleMusic();
     });
 
     // --- 3. Navbar Scroll Effect ---

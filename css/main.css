@@ -197,6 +197,16 @@ nav.scrolled {
     transition: width 0.3s ease;
 }
 
+#enter-btn {
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#enter-btn.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* Scroll Snap (Optional but nice for premium feel) */
 /* Language Toggle (Left Bottom) */
 .lang-toggle-container {

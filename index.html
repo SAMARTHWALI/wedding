@@ -9,23 +9,28 @@
     <title>Jagadeesh & Pooja | Rakesh & Bharati - Wali Family Wedding Invitation</title>
     <meta name="title" content="Jagadeesh & Pooja | Rakesh & Bharati - Wali Family Wedding Invitation">
     <meta name="description"
-        content="Together with their families, we invite you to celebrate the wedding of our children on April 20th, 2026.">
+        content="Together with the Wali family, we invite you to celebrate the wedding of Jagadeesh & Pooja and Rakesh & Bharati on April 20th, 2026.">
+    <meta name="theme-color" content="#800000">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://tloomy.com/index.html"> <!-- Update this to your final URL -->
+    <meta property="og:url" content="https://namma-maduve.in/">
+    <meta property="og:site_name" content="Wali Family Wedding Invitation">
     <meta property="og:title" content="Jagadeesh & Pooja | Rakesh & Bharati - Wedding Invitation">
     <meta property="og:description"
-        content="We request your gracious presence on the auspicious occasion of our children's wedding.">
-    <meta property="og:image" content="assets/images/thumbnail.png">
+        content="We request your gracious presence on the auspicious occasion of our children's wedding. Join us on Monday, April 20th, 2026.">
+    <meta property="og:image" content="https://namma-maduve.in/assets/images/thumbnail.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en_US">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://tloomy.com/index.html"> <!-- Update this to your final URL -->
+    <meta property="twitter:url" content="https://namma-maduve.in/">
     <meta property="twitter:title" content="Jagadeesh & Pooja | Rakesh & Bharati - Wedding Invitation">
     <meta property="twitter:description"
         content="Together with their families, we invite you to celebrate the wedding of our children on April 20th, 2026.">
-    <meta property="twitter:image" content="assets/images/thumbnail.png">
+    <meta property="twitter:image" content="https://namma-maduve.in/assets/images/thumbnail.png">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -81,9 +86,7 @@
 <body class="bg-ivory text-maroon-dark overflow-x-hidden">
 
     <!-- Background Music -->
-    <audio id="bg-music" loop preload="auto" autoplay>
-        <source src="assets/music/Akashakke Chappara Haaki-KannadaMaza.Com.mp3" type="audio/mpeg">
-    </audio>
+    <audio id="bg-music" loop preload="auto"></audio>
 
     <!-- Music Toggle Button (Top Right) -->
     <button id="music-toggle"
@@ -96,10 +99,15 @@
     <div id="loader" class="fixed inset-0 z-[100] bg-maroon-dark flex flex-col items-center justify-center text-gold">
         <div class="loader-content text-center">
             <h2 class="font-script text-5xl mb-4">Wali Family</h2>
-            <div class="w-48 h-1 bg-gold/30 rounded-full overflow-hidden relative">
+            <div id="loader-bar" class="w-48 h-1 bg-gold/30 rounded-full overflow-hidden relative mx-auto">
                 <div id="loader-progress" class="absolute inset-0 bg-gold w-0"></div>
             </div>
-            <p class="mt-4 font-sans tracking-[0.2em] text-sm opacity-80 uppercase">Loading</p>
+            <p id="loader-status" class="mt-4 font-sans tracking-[0.2em] text-sm opacity-80 uppercase">Loading</p>
+            
+            <!-- Enter Button (Shown at 100%) -->
+            <button id="enter-btn" class="hidden mt-8 px-10 py-4 bg-gold text-maroon-dark font-sans font-bold uppercase tracking-[0.3em] text-xs rounded-full hover:bg-ivory hover:scale-105 transition-all duration-300 shadow-[0_10px_30px_rgba(212,175,55,0.3)] opacity-0">
+                Open Invitation
+            </button>
         </div>
     </div>
 
@@ -622,61 +630,6 @@
     <script src="js/animations.js"></script>
     <script src="js/countdown.js"></script>
     <script src="js/i18n.js"></script>
-    <script>
-        const music = document.getElementById('bg-music');
-        const musicBtn = document.getElementById('music-toggle');
-        const musicIcon = document.getElementById('music-icon');
-        let isPlaying = false;
-
-        function tryPlay() {
-            music.currentTime = 21;
-            music.volume = 0.35;
-            music.play().then(() => {
-                isPlaying = true;
-                musicIcon.className = 'fa-solid fa-pause text-sm';
-            }).catch(() => {
-                // Browser blocked autoplay — wait for first interaction
-                isPlaying = false;
-                musicIcon.className = 'fa-solid fa-music text-sm';
-            });
-        }
-
-        // Try immediately when audio is ready
-        music.addEventListener('canplaythrough', tryPlay, { once: true });
-
-        // Fallback: start on first user interaction if not already playing
-        function onFirstInteraction() {
-            if (!isPlaying) tryPlay();
-        }
-        document.addEventListener('click', onFirstInteraction, { once: true });
-        document.addEventListener('touchstart', onFirstInteraction, { once: true });
-
-        // Manual toggle
-        musicBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            if (isPlaying) {
-                music.pause();
-                isPlaying = false;
-                musicIcon.className = 'fa-solid fa-music text-sm';
-            } else {
-                music.currentTime = music.currentTime || 21;
-                music.play();
-                isPlaying = true;
-                musicIcon.className = 'fa-solid fa-pause text-sm';
-            }
-        });
-
-        function switchGallery(couple) {
-            document.querySelectorAll('.gallery-panel').forEach(p => p.classList.add('hidden'));
-            document.querySelectorAll('.gallery-tab').forEach(t => t.classList.remove('active-tab'));
-            document.getElementById('gallery-' + couple).classList.remove('hidden');
-            if (couple === 'couple1') {
-                document.getElementById('gallery-tab-1').classList.add('active-tab');
-            } else {
-                document.getElementById('gallery-tab-2').classList.add('active-tab');
-            }
-        }
-    </script>
 </body>
 
 </html>

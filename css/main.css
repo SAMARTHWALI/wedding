@@ -102,26 +102,31 @@ body {
     filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
 }
 
+/* Premium Luxury Cards */
+.event-card-luxury {
+    background: linear-gradient(135deg, rgba(92, 0, 0, 0.95) 0%, rgba(128, 0, 0, 0.9) 100%);
+    box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.5);
+}
+
+.event-card-luxury::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top right, rgba(212, 175, 55, 0.15), transparent 60%);
+    pointer-events: none;
+}
+
+/* Refined Floating Buttons */
+.fixed.bottom-8.right-8 a {
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.4);
+}
+
 /* Animations Support */
 .reveal {
-    opacity: 1; /* Changed from 0 to ensure visibility */
-    transform: none; /* Changed from translateY(30px) */
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.2s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
-
-/* Premium Event Cards */
-.event-card-premium {
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.event-card-premium:hover {
-    box-shadow: 0 25px 50px -12px rgba(212, 175, 55, 0.25);
-}
-
-.event-card-premium i {
-    filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.3));
-}
-
 
 .reveal.active {
     opacity: 1;

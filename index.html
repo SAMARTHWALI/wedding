@@ -28,7 +28,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Noto+Sans+Kannada:wght@400;700&family=Noto+Serif+Kannada:wght@400;700&display=swap"
         rel="stylesheet">
 
     <!-- Font Awesome -->
@@ -70,6 +70,9 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/main.css">
+
+    <!-- i18n Script -->
+    <script src="js/i18n.js" defer></script>
 </head>
 
 <body class="bg-ivory text-maroon-dark overflow-x-hidden">
@@ -81,10 +84,21 @@
             <div class="w-48 h-1 bg-gold/30 rounded-full overflow-hidden relative">
                 <div id="loader-progress" class="absolute inset-0 bg-gold w-0"></div>
             </div>
-            <p class="mt-4 font-sans tracking-[0.2em] text-sm opacity-80 uppercase">Loading Experience</p>
+            <p class="mt-4 font-sans tracking-[0.2em] text-sm opacity-80 uppercase">Loading</p>
         </div>
     </div>
 
+
+    </div>
+
+    <!-- Language Toggle (Left Bottom) -->
+    <div class="lang-toggle-container">
+        <div class="lang-switch-wrapper">
+            <input type="checkbox" id="lang-switch">
+            <label for="lang-switch" class="lang-label label-en">EN</label>
+            <label for="lang-switch" class="lang-label label-kn">ಕನ್ನಡ</label>
+        </div>
+    </div>
 
     <!-- Floating Action Buttons (Right Side) -->
     <div class="fixed bottom-8 right-8 z-50 flex flex-col items-end gap-6">
@@ -110,13 +124,13 @@
     <!-- Navigation -->
     <nav id="navbar" class="fixed top-0 left-0 w-full z-40 px-6 py-4 transition-all duration-500">
         <div class="max-w-7xl mx-auto flex justify-between items-center whitespace-nowrap">
-            <a href="#" class="font-script text-2xl md:text-3xl text-gold">Wali Family</a>
+            <a href="#" class="font-script text-2xl md:text-3xl text-gold" data-en="Wali Family" data-kn="ವಾಲಿ ಮನೆತನ">Wali Family</a>
             <div class="hidden md:flex space-x-8 font-sans text-xs uppercase tracking-widest text-gold/80">
-                <a href="#welcome" class="hover:text-gold transition-colors">Welcome</a>
-                <a href="#couples" class="hover:text-gold transition-colors">Couples</a>
-                <a href="#events" class="hover:text-gold transition-colors">Events</a>
-                <a href="#gallery" class="hover:text-gold transition-colors">Gallery</a>
-                <a href="#rsvp" class="hover:text-gold transition-colors">RSVP</a>
+                <a href="#welcome" class="hover:text-gold transition-colors" data-en="Welcome" data-kn="ಸುಸ್ವಾಗತ">Welcome</a>
+                <a href="#couples" class="hover:text-gold transition-colors" data-en="Couples" data-kn="ವಧು-ವರರು">Couples</a>
+                <a href="#events" class="hover:text-gold transition-colors" data-en="Events" data-kn="ಕಾರ್ಯಕ್ರಮಗಳು">Events</a>
+                <a href="#gallery" class="hover:text-gold transition-colors" data-en="Gallery" data-kn="ಗ್ಯಾಲರಿ">Gallery</a>
+                <a href="#rsvp" class="hover:text-gold transition-colors" data-en="RSVP" data-kn="ಆರ್.ಎಸ್.ವಿ.ಪಿ">RSVP</a>
             </div>
             <!-- Mobile Menu Toggle -->
             <button class="md:hidden text-gold">
@@ -141,7 +155,9 @@
             <div class="relative z-10 text-center px-4 max-w-7xl" id="hero-content">
                 <div class="ganesha-container mb-4">
                     <p
-                        class="font-serif italic text-maroon-dark text-[10px] md:text-xs tracking-[0.4em] mb-4 font-bold uppercase">
+                        class="font-serif italic text-maroon-dark text-[10px] md:text-xs tracking-[0.4em] mb-4 font-bold uppercase"
+                        data-en="Sri Veerabhadreshwara Prasanna"
+                        data-kn="|| ಶ್ರೀ ವೀರಭದ್ರೇಶ್ವರ ಪ್ರಸನ್ನಃ ||">
                         Sri Veerabhadreshwara Prasanna</p>
                     <div class="ganesha-premium-container mx-auto" style="width: 140px; background: transparent;">
                         <img src="assets/images/ganesha_new.png" alt="Lord Ganesha" class="mx-auto block w-full"
@@ -150,7 +166,9 @@
                 </div>
 
                 <p
-                    class="font-sans text-maroon/80 text-[10px] md:text-xs tracking-[0.6em] uppercase font-bold mb-10 italic">
+                    class="font-sans text-maroon/80 text-[10px] md:text-xs tracking-[0.6em] uppercase font-bold mb-10 italic"
+                    data-en="Monday, 20th April 2026"
+                    data-kn="೨೦-೦೪-೨೦೨೬ ಸೋಮವಾರ">
                     Monday, 20th April 2026</p>
 
                 <div class="hero-couples-grid">
@@ -158,17 +176,19 @@
                     <div class="couple-unit">
                         <div class="mb-2">
                             <span
-                                class="text-[10px] md:text-[12px] uppercase tracking-[0.4em] text-maroon/50 font-bold italic">Chi.</span>
-                            <h1 class="font-serif text-maroon-dark italic font-bold leading-tight">Jagadeesh <span
+                                class="text-[10px] md:text-[12px] uppercase tracking-[0.4em] text-maroon/50 font-bold italic"
+                                data-en="Chi." data-kn="ಚಿ||">Chi.</span>
+                            <h1 class="font-serif text-maroon-dark italic font-bold leading-tight" data-en='Jagadeesh <span class="text-[10px] md:text-xs font-sans normal-case text-maroon/40 align-middle">B.Sc.,</span>' data-kn='ಜಗದೀಶ <span class="text-[10px] md:text-xs font-sans normal-case text-maroon/40 align-middle">B.Sc.,</span>'>Jagadeesh <span
                                     class="text-[10px] md:text-xs font-sans normal-case text-maroon/40 align-middle">B.Sc.,</span>
                             </h1>
                         </div>
-                        <span class="font-script weds text-maroon/40 block leading-none">weds</span>
+                        <span class="font-script weds text-maroon/40 block leading-none" data-en="weds" data-kn="ಜೊತೆ">weds</span>
                         <div class="mt-2">
                             <span
-                                class="text-[10px] md:text-[12px] uppercase tracking-[0.4em] text-maroon/50 font-bold italic">Chi.
+                                class="text-[10px] md:text-[12px] uppercase tracking-[0.4em] text-maroon/50 font-bold italic"
+                                data-en="Chi. Sou." data-kn="ಚಿ||ಕುಂ||ಸೌ||ಕಾಂ">Chi.
                                 Sou.</span>
-                            <h1 class="font-serif text-maroon-dark italic font-bold leading-tight">Pooja <span
+                            <h1 class="font-serif text-maroon-dark italic font-bold leading-tight" data-en='Pooja <span class="text-[10px] md:text-xs font-sans normal-case text-maroon/40 align-middle">B.A.,</span>' data-kn='ಪೂಜಾ <span class="text-[10px] md:text-xs font-sans normal-case text-maroon/40 align-middle">B.A.,</span>'>Pooja <span
                                     class="text-[10px] md:text-xs font-sans normal-case text-maroon/40 align-middle">B.A.,</span>
                             </h1>
                         </div>
@@ -181,17 +201,19 @@
                     <div class="couple-unit">
                         <div class="mb-2">
                             <span
-                                class="text-[10px] md:text-[12px] uppercase tracking-[0.4em] text-maroon/50 font-bold italic">Chi.</span>
-                            <h1 class="font-serif text-maroon-dark italic font-bold leading-tight">Rakesh <span
+                                class="text-[10px] md:text-[12px] uppercase tracking-[0.4em] text-maroon/50 font-bold italic"
+                                data-en="Chi." data-kn="ಚಿ||">Chi.</span>
+                            <h1 class="font-serif text-maroon-dark italic font-bold leading-tight" data-en='Rakesh <span class="text-[10px] md:text-xs font-sans normal-case text-maroon/40 align-middle">CESCOM</span>' data-kn='ರಾಕೇಶ <span class="text-[10px] md:text-xs font-sans normal-case text-maroon/40 align-middle">CESCOM</span>'>Rakesh <span
                                     class="text-[10px] md:text-xs font-sans normal-case text-maroon/40 align-middle">CESCOM</span>
                             </h1>
                         </div>
-                        <span class="font-script weds text-maroon/40 block leading-none">weds</span>
+                        <span class="font-script weds text-maroon/40 block leading-none" data-en="weds" data-kn="ಜೊತೆ">weds</span>
                         <div class="mt-2">
                             <span
-                                class="text-[10px] md:text-[12px] uppercase tracking-[0.4em] text-maroon/50 font-bold italic">Chi.
+                                class="text-[10px] md:text-[12px] uppercase tracking-[0.4em] text-maroon/50 font-bold italic"
+                                data-en="Chi. Sou." data-kn="ಚಿ||ಕುಂ||ಸೌ||ಕಾಂ">Chi.
                                 Sou.</span>
-                            <h1 class="font-serif text-maroon-dark italic font-bold leading-tight">Bharati <span
+                            <h1 class="font-serif text-maroon-dark italic font-bold leading-tight" data-en='Bharati <span class="text-[10px] md:text-xs font-sans normal-case text-maroon/40 align-middle">B.C.A.</span>' data-kn='ಭಾರತಿ <span class="text-[10px] md:text-xs font-sans normal-case text-maroon/40 align-middle">B.C.A.</span>'>Bharati <span
                                     class="text-[10px] md:text-xs font-sans normal-case text-maroon/40 align-middle">B.C.A.</span>
                             </h1>
                         </div>
@@ -199,14 +221,14 @@
                 </div>
 
                 <div class="mt-8">
-                    <p class="font-serif italic text-maroon/70 text-sm md:text-base max-w-sm mx-auto leading-relaxed">
+                    <p class="font-serif italic text-maroon/70 text-sm md:text-base max-w-sm mx-auto leading-relaxed" data-en="Together with their families,<br>invite you to celebrate their weddings" data-kn="ತಮ್ಮ ಅಕ್ಕರೆಯ ಆಮಂತ್ರಣದೊಂದಿಗೆ,<br>ವಾಲಿ ಮನೆತನದ ಮತ್ತು ಸಮಸ್ತ ಬಂಧು-ಬಳಗದವರು">
                         Together with their families,<br>invite you to celebrate their weddings
                     </p>
                     <div class="mt-6">
                         <span class="block text-[8px] uppercase tracking-[0.4em] text-gold mb-1">From :</span>
-                        <p class="font-serif text-maroon-dark font-bold text-base md:text-xl">Smt. Shivaleela Chidanand
+                        <p class="font-serif text-maroon-dark font-bold text-base md:text-xl" data-en="Smt. Shivaleela Chidanand V. Wali" data-kn="ಶ್ರೀಮತಿ ಶಿವಲೀಲಾ ಚಿದಾನಂದ ವಿ. ವಾಲಿ">Smt. Shivaleela Chidanand
                             V. Wali</p>
-                        <p class="text-[9px] md:text-xs tracking-widest text-maroon/60 uppercase mt-1">Munyal, Tq.
+                        <p class="text-[9px] md:text-xs tracking-widest text-maroon/60 uppercase mt-1" data-en="Munyal, Tq. Mudalagi, Dist. Belagavi" data-kn="ಮುನ್ಯಾಳ, ತಾ: ಮೂಡಲಗಿ, ಜಿ: ಬೆಳಗಾವಿ">Munyal, Tq.
                             Mudalagi, Dist. Belagavi</p>
                     </div>
                 </div>
@@ -219,16 +241,18 @@
         <!-- Welcome Section -->
         <section id="welcome" class="py-32 px-6 bg-ivory text-center relative">
             <div class="max-w-3xl mx-auto">
-                <h2 class="font-script text-6xl text-maroon mb-12">Invitation</h2>
+                <h2 class="font-script text-6xl text-maroon mb-12" data-en="Invitation" data-kn="ಶುಭ ವಿವಾಹ">Invitation</h2>
                 <div class="w-20 h-[1px] bg-gold/50 mx-auto mb-12"></div>
-                <p class="font-serif text-2xl md:text-3xl leading-relaxed text-maroon/90 italic mb-12">
+                <p class="font-serif text-2xl md:text-3xl leading-relaxed text-maroon/90 italic mb-12"
+                   data-en="&ldquo;We request your gracious presence with your family on the auspicious occasion of our son's wedding.&rdquo;"
+                   data-kn="&ldquo;ಆತ್ಮೀಯರೇ, ನಮ್ಮ ಪುತ್ರರ ವಿವಾಹ ಮಹೋತ್ಸವಕ್ಕೆ ತಾವು ತಮ್ಮ ಸಮಸ್ತ ಕುಟುಂಬ ಸಮೇತರಾಗಿ ಆಗಮಿಸಿ ಪದ್ಧತಿಯಂತೆ ಹರಸಬೇಕೆಂದು ಆಮಂತ್ರಿಸುತ್ತೇವೆ.&rdquo;">
                     "We request your gracious presence with your family on the auspicious occasion of our son's
                     wedding."
                 </p>
-                <div class="font-serif text-xl md:text-2xl text-maroon mb-4 uppercase tracking-widest">Awaiting Your
+                <div class="font-serif text-xl md:text-2xl text-maroon mb-4 uppercase tracking-widest" data-en="Awaiting Your Presence" data-kn="ಸಂತಸದ ಸ್ವಾಗತ ಕೋರುವವರು">Awaiting Your
                     Presence</div>
-                <div class="font-serif text-2xl md:text-4xl text-maroon-dark font-bold mb-2">Sri Chidanand V. Wali</div>
-                <div class="font-serif text-2xl md:text-4xl text-maroon-dark font-bold mb-6">& Smt. Shivaleela Chidanand
+                <div class="font-serif text-2xl md:text-4xl text-maroon-dark font-bold mb-2" data-en="Sri Chidanand V. Wali" data-kn="ಶ್ರೀ ಚಿದಾನಂದ ವಿ. ವಾಲಿ">Sri Chidanand V. Wali</div>
+                <div class="font-serif text-2xl md:text-4xl text-maroon-dark font-bold mb-6" data-en="& Smt. Shivaleela Chidanand V. Wali" data-kn="& ಶ್ರೀಮತಿ ಶಿವಲೀಲಾ ಚಿದಾನಂದ ವಿ. ವಾಲಿ">& Smt. Shivaleela Chidanand
                     V. Wali</div>
                 <p class="font-sans text-sm tracking-widest text-maroon/60 uppercase">Munyal, Tq. Mudalagi, Dist.
                     Belagavi</p>
@@ -246,7 +270,7 @@
             </div>
 
             <div class="max-w-7xl mx-auto relative z-10">
-                <h2 class="text-center font-script text-6xl text-gold mb-20">The Couples</h2>
+                <h2 class="text-center font-script text-6xl text-gold mb-20" data-en="The Couples" data-kn="ವಧು-ವರರು">The Couples</h2>
 
                 <div class="grid md:grid-cols-2 gap-12 lg:gap-24">
                     <!-- Couple 1 Card -->
@@ -258,7 +282,7 @@
                                 class="absolute bottom-0 h-1/3 w-full bg-gradient-to-t from-maroon-dark/95 to-transparent">
                             </div>
                             <div class="absolute bottom-10 left-0 w-full text-center px-6">
-                                <h3 class="font-script text-5xl text-gold mb-2">Jagadeesh & Pooja</h3>
+                                <h3 class="font-script text-5xl text-gold mb-2" data-en="Jagadeesh & Pooja" data-kn="ಜಗದೀಶ ಮತ್ತು ಪೂಜಾ">Jagadeesh & Pooja</h3>
                                 <div class="w-12 h-1 bg-gold mx-auto group-hover:w-24 transition-all duration-500">
                                 </div>
                             </div>
@@ -274,7 +298,7 @@
                                 class="absolute bottom-0 h-1/3 w-full bg-gradient-to-t from-maroon-dark/95 to-transparent">
                             </div>
                             <div class="absolute bottom-10 left-0 w-full text-center px-6">
-                                <h3 class="font-script text-5xl text-gold mb-2">Rakesh & Bharati</h3>
+                                <h3 class="font-script text-5xl text-gold mb-2" data-en="Rakesh & Bharati" data-kn="ರಾಕೇಶ ಮತ್ತು ಭಾರತಿ">Rakesh & Bharati</h3>
                                 <div class="w-12 h-1 bg-gold mx-auto group-hover:w-24 transition-all duration-500">
                                 </div>
                             </div>
@@ -286,46 +310,43 @@
 
         <!-- Event Details Section -->
         <section id="events" class="py-32 px-6 bg-ivory relative overflow-hidden">
-            <!-- Subtle Gold Texture Overlay -->
-            <div class="absolute inset-0 opacity-[0.03] pointer-events-none">
-                <img src="assets/images/pattern.png" alt="" class="w-full h-full object-cover">
-            </div>
-
+            <div class="mandala-bg"></div>
+            
             <div class="max-w-7xl mx-auto relative z-10">
-                <header class="text-center mb-20 reveal">
-                    <p class="font-sans text-xs uppercase tracking-[0.5em] text-maroon/60 mb-4 font-bold">The Celebration</p>
-                    <h2 class="font-script text-7xl md:text-8xl text-maroon mb-6">Wedding Details</h2>
-                    <div class="w-24 h-[1px] bg-gold/50 mx-auto"></div>
+                <header class="text-center mb-24 reveal">
+                    <p class="font-sans text-xs uppercase tracking-[0.5em] text-maroon/60 mb-6 font-bold" data-en="The Celebration" data-kn="ವಿವಾಹ ಸುಸಂದರ್ಭ">The Celebration</p>
+                    <h2 class="font-script text-7xl md:text-9xl text-maroon mb-8" data-en="Wedding Details" data-kn="ವಿವಾಹ ಕಾರ್ಯಕ್ರಮಗಳು">Wedding Details</h2>
+                    <div class="w-32 h-[1px] bg-gold/40 mx-auto"></div>
                 </header>
 
                 <div class="events-luxury-container reveal">
                     <!-- Muhurtham Details -->
-                    <article class="event-segment group">
+                    <article class="event-segment">
                         <header class="event-header-premium">
                             <i class="fa-solid fa-om"></i>
-                            <h3>Muhurtham</h3>
+                            <h3 data-en="Muhurtha" data-kn="ಮುಹೂರ್ತ">Muhurtha</h3>
                         </header>
                         
                         <dl class="event-details-dl">
                             <div>
                                 <dt>Auspicious Date</dt>
                                 <dd>
-                                    <time datetime="2026-04-20">Monday, 20th April 2026</time>
+                                    <time datetime="2026-04-20" data-en="Monday, 20th April 2026" data-kn="೨೦-೦೪-೨೦೨೬ ಸೋಮವಾರ">Monday, 20th April 2026</time>
                                 </dd>
                             </div>
                             <div>
-                                <dt>Golden Hours</dt>
-                                <dd>12:29 PM Onwards</dd>
-                                <dd class="text-xs italic tracking-[0.2em] mt-4 py-2 px-4 bg-gold/5 rounded-full inline-block text-maroon/60">"Followed by Sumptuous Lunch"</dd>
+                                <dt data-en="Golden Hours" data-kn="ಶುಭ ಸಮಯ">Golden Hours</dt>
+                                <dd data-en="12:29 PM Onwards" data-kn="ಮಧ್ಯಾಹ್ನ ೧೨:೨೯ ಗಂಟೆಗೆ">12:29 PM Onwards</dd>
+                                <dd class="text-xs italic tracking-[0.3em] mt-6 py-3 px-6 bg-gold/5 rounded-full inline-block text-maroon/50 border border-gold/10" data-en='"Followed by Sumptuous Lunch"' data-kn='"ನಂತರ ಪ್ರೀತಿ ಭೋಜನ"'>"Followed by Sumptuous Lunch"</dd>
                             </div>
                         </dl>
                     </article>
 
                     <!-- Venue Details -->
-                    <article class="event-segment group">
+                    <article class="event-segment">
                         <header class="event-header-premium">
                             <i class="fa-solid fa-place-of-worship"></i>
-                            <h3>The Venue</h3>
+                            <h3 data-en="The Venue" data-kn="ವಿವಾಹ ಸ್ಥಳ">The Venue</h3>
                         </header>
                         
                         <div class="event-details-dl">
@@ -333,15 +354,15 @@
                                 <dt>Location</dt>
                                 <dd>
                                     <address class="venue-address-semantic">
-                                        <strong>Sri Thonapinath Kalyana Mantapa</strong>
-                                        <span>Samirvadi, Mahalingpur - 587312</span>
-                                        <span class="text-[10px] tracking-[0.3em] opacity-60 uppercase mt-2">Tq. Mudhol, Dist. Bagalkot</span>
+                                        <strong data-en="Sri Thonapinath Kalyana Mantapa" data-kn="ಶ್ರೀ ತೋಣಪೀನಾಥ ಕಲ್ಯಾಣ ಮಂಟಪ">Sri Thonapinath Kalyana Mantapa</strong>
+                                        <span data-en="Samirvadi, Mahalingpur - 587312" data-kn="ಸಮೀರವಾಡಿ, ಮಹಾಲಿಂಗಪುರ - ೫೮೭೩೧೨">Samirvadi, Mahalingpur - 587312</span>
+                                        <span class="text-[10px] tracking-[0.4em] opacity-40 uppercase mt-3 font-sans font-bold" data-en="Tq. Mudhol, Dist. Bagalkot" data-kn="ತಾ: ಮುಧೋಳ, ಜಿ: ಬಾಗಲಕೋಟೆ">Tq. Mudhol, Dist. Bagalkot</span>
                                     </address>
                                 </dd>
                             </div>
-                            <div>
+                            <div class="pt-4">
                                 <a href="https://www.google.com/maps?q=16.389451204026248, 75.11081094847106" target="_blank" 
-                                   class="navigate-btn-premium">
+                                   class="navigate-btn-premium" data-en='<i class="fa-solid fa-diamond-turn-right"></i> Navigate To Venue' data-kn='<i class="fa-solid fa-diamond-turn-right"></i> ವಿಳಾಸ ಪಡೆಯಿರಿ'>
                                     <i class="fa-solid fa-diamond-turn-right"></i> Navigate To Venue
                                 </a>
                             </div>
@@ -382,7 +403,7 @@
 
         <section id="gallery" class="py-24 px-6 bg-ivory">
             <div class="max-w-7xl mx-auto">
-                <h2 class="text-center font-script text-6xl text-maroon mb-16">Pre-Wedding Gallery</h2>
+                <h2 class="text-center font-script text-6xl text-maroon mb-16" data-en="Pre-Wedding Gallery" data-kn="ಗ್ಯಾಲರಿ">Pre-Wedding Gallery</h2>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="gallery-grid">
                     <div class="gallery-item overflow-hidden rounded-2xl aspect-square cursor-pointer group">
@@ -408,21 +429,21 @@
             <div class="max-w-7xl mx-auto">
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div>
-                        <h2 class="font-script text-6xl text-gold mb-8">Venue & Location</h2>
+                        <h2 class="font-script text-6xl text-gold mb-8" data-en="Venue & Location" data-kn="ವಿವಾಹ ಸ್ಥಳ ಮತ್ತು ವಿಳಾಸ">Venue & Location</h2>
                         <div class="space-y-6 text-ivory/90">
                             <div>
-                                <h4 class="font-serif text-xl text-gold mb-2 uppercase tracking-widest">Sri Thonapinath
+                                <h4 class="font-serif text-xl text-gold mb-2 uppercase tracking-widest" data-en="Sri Thonapinath Kalyana Mantapa" data-kn="ಶ್ರೀ ತೋಣಪೀನಾಥ ಕಲ್ಯಾಣ ಮಂಟಪ">Sri Thonapinath
                                     Kalyana Mantapa
                                 </h4>
-                                <p class="font-sans">Mahalingapur-587312,<br>Tq. Mudhol, Dist. Bagalkot</p>
+                                <p class="font-sans" data-en="Mahalingpur-587312,<br>Tq. Mudhol, Dist. Bagalkot" data-kn="ಮಹಾಲಿಂಗಪುರ-೫೮೭೩೧೨,<br>ತಾ: ಮುಧೋಳ, ಜಿ: ಬಾಗಲಕೋಟೆ">Mahalingpur-587312,<br>Tq. Mudhol, Dist. Bagalkot</p>
                             </div>
                             <div class="pt-6 border-t border-gold/20">
-                                <p class="font-serif italic text-gold text-lg mb-4">"We request the pleasure of your
-                                    company to share in our joy."
+                                <p class="font-serif italic text-gold text-lg mb-4" data-en='"We request the pleasure of your company to share in our joy."' data-kn='"ನಮ್ಮ ಸಂತಸದ ಕ್ಷಣಗಳಲ್ಲಿ ಭಾಗಿಯಾಗಲು ತಮಗೆ ಆದರದ ಸ್ವಾಗತ."'>
+                                    "We request the pleasure of your company to share in our joy."
                                 </p>
                                 <a href="https://www.google.com/maps?q=16.389451204026248, 75.11081094847106"
                                     target="_blank"
-                                    class="inline-block px-10 py-4 bg-gold text-maroon-dark font-sans font-bold uppercase tracking-[0.3em] text-xs rounded-full hover:bg-ivory hover:scale-105 transition-all duration-300 shadow-[0_10px_30px_rgba(212,175,55,0.3)]">Get
+                                    class="inline-block px-10 py-4 bg-gold text-maroon-dark font-sans font-bold uppercase tracking-[0.3em] text-xs rounded-full hover:bg-ivory hover:scale-105 transition-all duration-300 shadow-[0_10px_30px_rgba(212,175,55,0.3)]" data-en="Get Directions" data-kn="ವಿಳಾಸ ಪಡೆಯಿರಿ">Get
                                     Directions</a>
                             </div>
                         </div>
@@ -446,13 +467,14 @@
             <img src="assets/images/pattern.png" alt="Pattern" class="w-full h-full object-cover">
         </div>
         <div class="max-w-4xl mx-auto px-6 relative z-10">
-            <h3 class="font-script text-5xl text-gold mb-8">Wali Family</h3>
-            <p class="font-serif italic text-gold/80 text-xl mb-12">"With best compliments from: Relatives & Friends"
+            <h3 class="font-script text-5xl text-gold mb-8" data-en="Wali Family" data-kn="ವಾಲಿ ಮನೆತನ">Wali Family</h3>
+            <p class="font-serif italic text-gold/80 text-xl mb-12" data-en='"With best compliments from: Relatives & Friends"' data-kn='"ಶುಭ ಹಾರೈಕೆಗಳೊಂದಿಗೆ: ಕುಟುಂಬದವರು ಮತ್ತು ಸ್ನೇಹಿತರು"'>
+                "With best compliments from: Relatives & Friends"
             </p>
 
             <div class="grid md:grid-cols-2 gap-8 mb-16 text-gold/80 font-serif">
                 <div class="space-y-4">
-                    <p class="uppercase tracking-widest text-xs font-sans font-bold">Call Us</p>
+                    <p class="uppercase tracking-widest text-xs font-sans font-bold" data-en="Call Us" data-kn="ಸಂಪರ್ಕಿಸಿ">Call Us</p>
                     <p class="text-2xl">9972340381</p>
                     <p class="text-2xl">8147876734</p>
                 </div>

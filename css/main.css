@@ -7,6 +7,11 @@
     --maroon: #800000;
     --maroon-dark: #5C0000;
     --ivory: #FFFFF0;
+    --font-en-serif: "Playfair Display", serif;
+    --font-en-sans: 'Montserrat', sans-serif;
+    --font-en-script: "Great Vibes", cursive;
+    --font-kn-serif: 'Noto Serif Kannada', serif;
+    --font-kn-sans: 'Noto Sans Kannada', sans-serif;
 }
 
 html {
@@ -123,11 +128,12 @@ body {
 
 /* Animations Support */
 .reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 1.2s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+    /* Set current state as visible for GSAP to animate 'from' */
+    opacity: 1;
+    transform: translateY(0);
 }
 
+/* Fallback/Legacy active class */
 .reveal.active {
     opacity: 1;
     transform: translateY(0);
@@ -141,7 +147,8 @@ body {
     animation: drift linear infinite;
     z-index: 5;
     pointer-events: none;
-    opacity: 0.6;
+    opacity: 0.8; /* Increased for visibility */
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
 }
 
 @keyframes drift {
@@ -191,16 +198,117 @@ nav.scrolled {
 }
 
 /* Scroll Snap (Optional but nice for premium feel) */
-/* .scroll-container {
-    scroll-snap-type: y mandatory;
-    height: 100vh;
-    overflow-y: scroll;
+/* Language Toggle (Left Bottom) */
+.lang-toggle-container {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    z-index: 100;
 }
-.scroll-section {
-    scroll-snap-align: start;
-    height: 100vh;
-} */
+
+.lang-switch-wrapper {
+    display: flex;
+    align-items: center;
+    background: rgba(92, 0, 0, 0.9);
+    backdrop-filter: blur(10px);
+    padding: 6px;
+    border-radius: 50px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+.lang-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 6px 12px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    color: rgba(212, 175, 55, 0.5);
+    border-radius: 50px;
+}
+
+.lang-switch-wrapper input:checked ~ .label-kn,
+.lang-switch-wrapper input:not(:checked) ~ .label-en {
+    background: var(--gold);
+    color: var(--maroon-dark);
+    box-shadow: 0 2px 10px rgba(212, 175, 55, 0.3);
+}
+
+.lang-switch-wrapper input {
+    display: none;
+}
+
+/* Kannada Typography Overrides */
+body.lang-kn {
+    font-family: var(--font-kn-sans);
+}
+
+body.lang-kn .font-serif,
+body.lang-kn h1,
+body.lang-kn h2,
+body.lang-kn h3,
+body.lang-kn h4 {
+    font-family: var(--font-kn-serif) !important;
+}
+
+body.lang-kn .font-script {
+    font-family: var(--font-kn-serif) !important;
+    font-weight: 700;
+}
+
+body.lang-kn .font-sans {
+    font-family: var(--font-kn-sans) !important;
+}
+
+/* Kannada Specific Font Size Adjustments */
+body.lang-kn .event-details-dl dd,
+body.lang-kn .venue-address-semantic strong,
+body.lang-kn .venue-address-semantic span {
+    font-size: 0.9em;
+    line-height: 1.4;
+}
+
+body.lang-kn .event-header-premium h3 {
+    font-size: 1.2rem;
+}
+
+/* Header & Hero Scaling for Kannada */
+body.lang-kn h2.font-script {
+    font-size: clamp(2.5rem, 8vw, 4.5rem) !important;
+    letter-spacing: 0.05em;
+    line-height: 1.2;
+}
+
+body.lang-kn .couple-unit h1 {
+    font-size: clamp(1.8rem, 4vw, 3.5rem) !important;
+    line-height: 1.1;
+}
+
+body.lang-kn .weds {
+    font-size: clamp(1.5rem, 4vw, 2.5rem) !important;
+    margin: 0.5rem 0;
+}
+
+body.lang-kn .font-sans.text-xs {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em !important;
+}
 /* Organic Luxury Events Layout */
+.mandala-bg {
+    background-image: url('../assets/images/pattern.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 800px;
+    opacity: 0.05;
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
 .events-luxury-container {
     display: flex;
     flex-wrap: wrap;

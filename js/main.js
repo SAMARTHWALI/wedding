@@ -118,3 +118,36 @@ function startHeroAnimation() {
         yoyo: true
     });
 }
+
+/**
+ * Generate and download an ICS file for the wedding event
+ * Includes a reminder 1 day before (April 19th)
+ */
+function downloadICS() {
+    const icsContent = `BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Wali Family//Wedding Invitation//EN
+BEGIN:VEVENT
+UID:wali-wedding-2026@namma-maduve.in
+DTSTAMP:20260409T000000Z
+DTSTART:20260420T065900Z
+DTEND:20260420T113000Z
+SUMMARY:Wali Family Wedding Ceremony
+DESCRIPTION:Wedding of Jagadeesh & Pooja and Rakesh & Bharati.
+LOCATION:Sri Thonapinath Kalyana Mantapa\\, Mahalingpur
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Reminder: Wali Family Wedding Ceremony Tomorrow
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+END:VCALENDAR`;
+
+    const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+    const link = document.createElement('a');
+    link.href = window.URL.createObjectURL(blob);
+    link.download = 'Wali_Family_Wedding.ics';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}

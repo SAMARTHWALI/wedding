@@ -151,3 +151,29 @@ END:VCALENDAR`;
     link.click();
     document.body.removeChild(link);
 }
+
+/**
+ * Switch Gallery between couples
+ * @param {string} coupleId - 'couple1' or 'couple2'
+ */
+function switchGallery(coupleId) {
+    const panels = document.querySelectorAll('.gallery-panel');
+    const tabs = document.querySelectorAll('.gallery-tab');
+    
+    // Hide all panels
+    panels.forEach(panel => panel.classList.add('hidden'));
+    
+    // Show selected panel
+    const selectedPanel = document.getElementById(`gallery-${coupleId}`);
+    if (selectedPanel) {
+        selectedPanel.classList.remove('hidden');
+    }
+    
+    // Update tabs
+    tabs.forEach(tab => tab.classList.remove('active-tab'));
+    
+    const activeTab = coupleId === 'couple1' ? document.getElementById('gallery-tab-1') : document.getElementById('gallery-tab-2');
+    if (activeTab) {
+        activeTab.classList.add('active-tab');
+    }
+}
